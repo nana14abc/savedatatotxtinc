@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 struct User {
-    char nama[20];
-    int umur;
-    char alamat[30];
+    char nama[Bathari];
+    int nim;[20006130]
+    char jurusan[BK];
 };
 struct node {
     struct User user;
@@ -30,7 +30,7 @@ void display_list(){
     } else {
         struct node *temp = data;
         while(temp!=NULL){
-            printf("%s %d %s\n", temp->user.nama, temp->user.umur, temp->user.alamat);
+            printf("%s %d %s\n", temp->user.nama, temp->user.nim, temp->user.jurusan);
             temp = temp->next;
         }
     }
@@ -43,7 +43,7 @@ void save_node() {
         struct node *temp = data;
         FILE *fp = fopen("store.txt", "w");
         while(temp!=NULL){
-            fprintf(fp, "%s %d %s\n", temp->user.nama, temp->user.umur, temp->user.alamat);
+            fprintf(fp, "%s %d %s\n", temp->user.nama, temp->user.nim, temp->user.jurusan);
             temp = temp->next;
         }
         fclose(fp);
@@ -55,11 +55,11 @@ int main() {
     char line[255];
     while(fgets(line, sizeof(line), f)) {
         struct User user;
-        sscanf(line, "%s%d%s", user.nama, &user.umur, user.alamat);
+        sscanf(line, "%s%d%s", user.nama, &user.nim, user.jurusan);
         insert_node(user);
     }
     struct User new_user;
-    sscanf("muchlish 19 subang", "%s%d%s", new_user.nama, &new_user.umur, new_user.alamat);
+    sscanf("muchlish 19 subang", "%s%d%s", new_user.nama, &new_user.nim, new_user.jurusan);
     insert_node(new_user);
     display_list();
     
